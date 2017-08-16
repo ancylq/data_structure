@@ -51,6 +51,7 @@ class MyQueue(object):
 
     def QueueTraverse(self):
         for i in range(self.m_iHead, self.m_iHead+self.m_iQueueLen):
+            print '前面还有%d个数' % (i-self.m_iHead)
             print self.m_pQueue[i%self.m_iQueueCapacity]
 
 
