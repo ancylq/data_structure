@@ -1,6 +1,7 @@
 # coding:utf-8
 
 class MyList(object):
+    '''顺序表'''
 
     def __init__(self, size):
         self.m_iSize = size    # 线性表的容量

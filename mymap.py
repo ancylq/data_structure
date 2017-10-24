@@ -119,9 +119,9 @@ class MyMap(object):
         curVec = [] # 保存当前层的节点的索引
         curVec.append(nodeIndex)
         
-        self.__breadthFirstTraverseImpl(curVec)
+        self._breadthFirstTraverseImpl(curVec)
     
-    def __breadthFirstTraverseImpl(self, preVec):
+    def _breadthFirstTraverseImpl(self, preVec):
         '''广度优先遍历实现函数
         preVec 保存的上层的节点
         '''
@@ -141,7 +141,7 @@ class MyMap(object):
         if len(curVec) == 0:
             return 
         else:
-            self.__breadthFirstTraverseImpl(curVec)
+            self._breadthFirstTraverseImpl(curVec)
     
     
 if __name__ == '__main__':

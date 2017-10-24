@@ -1,6 +1,7 @@
 # coding:utf-8
 
 class MyStack(object):
+    '''栈'''
 
     def __init__(self, size):
         print 'init---'

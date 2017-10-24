@@ -1,6 +1,7 @@
 # coding:utf-8
 
 class MyQueue(object):
+    '''环形队列'''
 
     def __init__(self, queueCapacity):
         self.m_iQueueCapacity = queueCapacity
