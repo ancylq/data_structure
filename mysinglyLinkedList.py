@@ -92,17 +92,20 @@ class MySinglyLinkedList(object):
         self.m_iLength += 1
         return True
 
-    def listDelete(self, i, pNode):
+    def listDelete(self, i):
         if i<0 or i>=self.m_iLength:
             return False
         currentNode = self.m_pList
         currentNodeBefore = None
+        
+        # 对开发：0为头结点，其域无用
+        # 对用户：0为第一个元素，并不知道头结点的存在，所以对应了开发的第1个节点
         for k in range(i+1):
             currentNodeBefore = currentNode
             currentNode = currentNode.next
 
         currentNodeBefore.next = currentNode.next
-        pNode.data = currentNode.data 
+#         pNode.data = currentNode.data 
         del currentNode
         currentNode = None
         self.m_iLength -= 1
@@ -113,9 +116,7 @@ class MySinglyLinkedList(object):
         if i<0 or i>=self.m_iLength:
             return False
         currentNode = self.m_pList
-        currentNodeBefore = None
         for k in range(i+1):
-            currentNodeBefore = currentNode
             currentNode = currentNode.next
         return currentNode.data
 
@@ -123,12 +124,20 @@ class MySinglyLinkedList(object):
         ''' 定位元素位置'''
         currentNode = self.m_pList
         count = 0
-        while current.next != None:
+        while currentNode.next != None:
             currentNode = currentNode.next
             if currentNode.data == pNode.data:
                 return count
             count += 1
         return -1
+    # 下面的也可以
+#         current= self.m_pList
+#         for i in range(self.listLength):
+#             current = current.next
+#             if current.data == pNode.data:
+#                 return i
+#         return -1
+#                 
 
     def priorElem(self, pCurrentNode):
         ''' 获取前驱元素'''
@@ -204,12 +213,17 @@ def main():
     pList.listTraverse() # 7654733456
     
     print '----- delete number 7 in 0 -----'
-    print pList.listDelete(0, node5) # 7
+    print pList.listDelete(0) # 7
     pList.listTraverse() #654733456
 
     print pList.getElem(3) # 7
     print pList.priorElem(node5) # 4
-    print pList.nextElem(node5) # 3
+    print pList.nextElem(node5) # node5后面元素的值为3
+    node10 = Node()
+    node10.data = 9
+#     pList.listInsertTail(node10)
+    print '-----'
+    print pList.locateElem(node10) # node5的索引为3
 
     del pList
 
